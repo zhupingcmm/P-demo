@@ -40,6 +40,7 @@ public class NettyClient {
                 });
 
         ChannelFuture cf = bootstrap.connect(host, port).sync();
+        //获取通道
         Channel channel = cf.channel();
         System.out.println("----------" + channel.localAddress().toString().substring(1) + "--------");
 
@@ -47,8 +48,8 @@ public class NettyClient {
         System.out.println("请输入： ");
         while (scanner.hasNext()) {
             String msg = scanner.nextLine();
+            // 向通道写消息
             channel.writeAndFlush(msg + "\r\n");
-
         }
         cf.channel().closeFuture().sync();
     }
