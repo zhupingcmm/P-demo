@@ -1,0 +1,3 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  com.mf.zula.springboot.starter.config.HelloAutoConfiguration,\
+  com.mf.zula.springboot.starter.config.DemoAutoConfiguration
