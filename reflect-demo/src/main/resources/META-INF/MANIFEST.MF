@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Premain-Class: com.mf.reflect.bytebuddy.Agent
+Agent-Class: com.mf.reflect.bytebuddy.Agent
+Can-Redefine-Classes: true
+Can-Retransform-Classes: true
+Build-Jdk-Spec: 1.8
+Created-By: pphh
