@@ -21,6 +21,9 @@ public class AspectProxy {
 
 
         Object ret = null;
+        ThreadLocal<String> a = new ThreadLocal<>();
+
+        a.set("a");
 
         iAspect.beforeMethod(obj, method, allArguments, ret);
         try {

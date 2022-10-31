@@ -12,7 +12,7 @@ public class Agent {
         System.out.println("loading agent");
 
         Listener listener = new Listener();
-        new AgentBuilder.Default().type(named("com.mf.app.Greeting"))
+        new AgentBuilder.Default().type(named("com.mf.app.Greeting").and(named("")))
                 .transform(new Transformer())
                 .with(AgentBuilder.RedefinitionStrategy.RETRANSFORMATION)
 //                .with(listener)
