@@ -19,6 +19,7 @@
         <module>log-demo</module>
         <module>spi</module>
         <module>spring-demo</module>
+        <module>spring-tran-demo</module>
     </modules>
 
     <properties>
