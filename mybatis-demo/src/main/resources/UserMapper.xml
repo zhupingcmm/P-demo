@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+        <!DOCTYPE mapper
+                PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+                "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+        <!--
+        mybatis-3-mapper.dtd 头部的文档声明，验证当前文档的正确性
+        namespace属性：指定当前映射器的命名空间
+        -->
+<mapper namespace="test">
+    <resultMap id="user" type="com.mf.mybatis.pojo.User">
+        <id column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="age" property="age"/>
+        <result column="address" property="address"/>
+    </resultMap>
+    <sql id="userSql">
+        id, name , age, address
+    </sql>
+    <select id="findAll" resultMap="user" useCache="true">
+        select <include refid="userSql"/> from tab_user;
+    </select>
+    <select id="findUser" parameterType="com.mf.mybatis.pojo.User" resultMap="user">
+        select <include refid="userSql"/> from tab_user
+        <where>
+            <if test="name != null and name != ''">
+                and address = #{address}
+            </if>
+        </where>
+    </select>
+    <update id="updateUser" parameterType="com.mf.mybatis.pojo.User">
+        update tab_user
+        <set>
+            <if test="name!=null and name!=''">
+                name = #{name},
+            </if>
+            <if test="address!=null and address!=''">
+                address = #{address}
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+</mapper>
