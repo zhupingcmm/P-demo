@@ -16,9 +16,12 @@
     <sql id="userSql">
         id, name , age, address
     </sql>
-    <select id="findAll" resultMap="user" useCache="true">
-        select <include refid="userSql"/> from tab_user;
+    <select id="findAll" resultMap="user" useCache="true" parameterType="int">
+        select <include refid="userSql"/> from tab_user where id = #{id};
     </select>
+    <insert id="addUser" parameterType="com.mf.mybatis.pojo.User">
+        insert into tab_user (name, age, address) values (#{name}, #{age}, #{address});
+    </insert>
     <select id="findUser" parameterType="com.mf.mybatis.pojo.User" resultMap="user">
         select <include refid="userSql"/> from tab_user
         <where>
