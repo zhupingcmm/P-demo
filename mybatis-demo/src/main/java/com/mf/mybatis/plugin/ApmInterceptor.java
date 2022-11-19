@@ -31,10 +31,10 @@ public class ApmInterceptor implements Interceptor {
         val target = invocation.getTarget();
         val method = invocation.getMethod();
         val args = invocation.getArgs();
-        val apmFactory = new ApmFactory(method, args);
-        apmFactory.process();
+        val apmProcess = ApmFactory.build(method);
+        apmProcess.handle(args);
         val result = method.invoke(target, args);
-        apmFactory.print();
+        apmProcess.print();
         return result;
     }
 

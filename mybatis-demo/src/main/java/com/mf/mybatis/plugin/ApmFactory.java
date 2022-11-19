@@ -7,29 +7,17 @@ import com.mf.mybatis.plugin.process.impl.UpdateProcess;
 import java.lang.reflect.Method;
 
 public class ApmFactory {
-    private final static String QUERY_METHOD = "query";
     private final static String UPDATE_METHOD = "update";
-    private ApmProcess apmProcess;
 
 
-    public ApmFactory(Method method, Object [] args){
+    public static ApmProcess build (Method method) {
+
         switch (method.getName()){
             case UPDATE_METHOD:
-                apmProcess = new UpdateProcess(args);
-                break;
+                return new UpdateProcess();
             default:
-                apmProcess = new QueryProcess(args);
+                return new QueryProcess();
         }
-
     }
-
-    public void process(){
-        apmProcess.handle();
-    }
-
-    public void print(){
-        apmProcess.print();
-    }
-
 
 }

@@ -5,18 +5,10 @@ import lombok.val;
 import org.apache.ibatis.mapping.MappedStatement;
 import org.apache.ibatis.session.RowBounds;
 
+import static com.mf.mybatis.plugin.constants.Constants.*;
+
 public class QueryProcess extends AbstractProcess {
-    static int MAPPED_STATEMENT_INDEX = 0;
-    static int PARAMETER_INDEX = 1;
-    static int ROW_BOUNDS_INDEX = 2;
-    private Object [] args;
-
-    public QueryProcess(Object[] args) {
-        this.args = args;
-    }
-
-
-    public void handle() {
+    public void handle(Object[] args) {
         final MappedStatement ms = (MappedStatement) args[MAPPED_STATEMENT_INDEX];
         final Object parameter = args[PARAMETER_INDEX];
         final RowBounds rowBounds = (RowBounds) args[ROW_BOUNDS_INDEX];

@@ -1,22 +1,17 @@
 package com.mf.mybatis.plugin.process.impl;
 
 
+import com.mf.mybatis.plugin.constants.Constants;
 import com.mf.mybatis.plugin.process.AbstractProcess;
 import lombok.val;
 import org.apache.ibatis.mapping.MappedStatement;
 
+import static com.mf.mybatis.plugin.constants.Constants.PARAMETER_INDEX;
+import static com.mf.mybatis.plugin.constants.Constants.MAPPED_STATEMENT_INDEX;
 public class UpdateProcess extends AbstractProcess {
 
-    private static final int MAPPED_STATEMENT_INDEX = 0;
-    private static final int  PARAMETER_INDEX = 1;
-    private Object[] args;
-
-    public UpdateProcess(Object[] args) {
-        this.args = args;
-    }
-
     @Override
-    public void handle() {
+    public void handle(Object[] args) {
         final MappedStatement ms = (MappedStatement) args[MAPPED_STATEMENT_INDEX];
         final Object parameter = args[PARAMETER_INDEX];
         val boundSql = ms.getBoundSql(parameter);

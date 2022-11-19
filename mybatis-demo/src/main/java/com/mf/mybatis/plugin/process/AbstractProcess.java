@@ -1,7 +1,10 @@
 package com.mf.mybatis.plugin.process;
 
-public abstract class AbstractProcess implements ApmProcess{
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
+public abstract class AbstractProcess implements ApmProcess{
+    protected static final Logger logger = LoggerFactory.getLogger(AbstractProcess.class);
     private long startTime = System.currentTimeMillis();
 
     private String logContent;
@@ -12,6 +15,6 @@ public abstract class AbstractProcess implements ApmProcess{
 
     public  void print() {
         long takeTime = System.currentTimeMillis() - startTime;
-        System.out.println("[" + takeTime + " ms" + "] " + logContent);
+        logger.info("[{} ms] {}", takeTime, logContent);
     };
 }
