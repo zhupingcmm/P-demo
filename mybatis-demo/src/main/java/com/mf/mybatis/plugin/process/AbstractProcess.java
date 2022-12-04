@@ -4,7 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public abstract class AbstractProcess implements ApmProcess{
-    protected static final Logger logger = LoggerFactory.getLogger(AbstractProcess.class);
+    private static final Logger logger = LoggerFactory.getLogger(AbstractProcess.class);
     private long startTime = System.currentTimeMillis();
 
     private String logContent;

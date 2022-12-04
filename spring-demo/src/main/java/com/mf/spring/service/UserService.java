@@ -1,23 +1,16 @@
 package com.mf.spring.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Lookup;
-import org.springframework.context.annotation.Conditional;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Lazy;
+
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 
-
 @Component
-public abstract class UserService {
-
-
-//    @Autowired
-//    private OrderService orderService123;
-
-    @Lookup("orderService")
+public class UserService {
+    @Value("${pzhu}")
+    public String pzhu;
     public OrderService test(){
+        System.out.println(pzhu);
         return null;
     }
 }

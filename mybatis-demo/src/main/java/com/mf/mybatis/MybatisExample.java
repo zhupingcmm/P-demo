@@ -18,9 +18,9 @@ public class MybatisExample {
         List<User> users = sqlSession.selectList("test.findAll", 1);
         val result= sqlSession.update("test.addUser", User.builder().name("zp").address("shanghai").age(18).build());
 
-        for (User user : users) {
-            System.out.println(user);
-        }
+//        for (User user : users) {
+//            System.out.println(user);
+//        }
         sqlSession.commit();
         sqlSession.close();
     }

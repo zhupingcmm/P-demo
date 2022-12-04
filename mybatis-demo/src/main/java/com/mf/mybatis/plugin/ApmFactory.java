@@ -6,7 +6,7 @@ import com.mf.mybatis.plugin.process.impl.UpdateProcess;
 
 import java.lang.reflect.Method;
 
-public class ApmFactory {
+public class    ApmFactory {
     private final static String UPDATE_METHOD = "update";
 
 

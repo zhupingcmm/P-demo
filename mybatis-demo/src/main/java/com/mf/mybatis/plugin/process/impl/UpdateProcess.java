@@ -1,7 +1,5 @@
 package com.mf.mybatis.plugin.process.impl;
 
-
-import com.mf.mybatis.plugin.constants.Constants;
 import com.mf.mybatis.plugin.process.AbstractProcess;
 import lombok.val;
 import org.apache.ibatis.mapping.MappedStatement;
